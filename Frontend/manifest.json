@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Sense",
+  "version": "1.4",
+  "description": "Real-time tab summarization + knowledge graph.",
+
+  "action": {
+    "default_icon": "icons/icon48.png",
+    "default_title": "Tab Sense"
+  },
+
+  "permissions": [
+    "tabs",
+    "storage",
+    "scripting",
+    "activeTab",
+    "sidePanel"
+  ],
+
+  "host_permissions": [
+    "<all_urls>",
+    "https://api.groq.com/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "side_panel": {
+    "default_path": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["libs/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+

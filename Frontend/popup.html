@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tab Sense</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Tab Sense</h1>
+      <div id="panelControls">
+        <button id="toggleViewBtn">Graph</button>
+        <button id="closePanelBtn">×</button>
+      </div>
+    </header>
+
+    <section id="summaryNote">
+      <small>Quick summaries of your open tabs.</small>
+    </section>
+    
+  <main>
+  <section id="summariesView">
+    <h2>Tab Summaries</h2>
+    <div id="summaryList"></div>
+  </section>
+
+  <section id="graphView" class="hidden">
+    <h2>Knowledge Graph</h2>
+    <div id="graph"></div>
+  </section>
+</main>
+
+<!-- ✅ Full Summary Modal (OUTSIDE summaryList) -->
+<div id="detailModal" class="hidden">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <button id="closeModal" class="modal-close">×</button>
+
+    <h2 id="modalTitle"></h2>
+
+    <p id="modalSummary"></p>
+
+    <div class="modal-links">
+      <a id="modalUrl" target="_blank" rel="noopener">
+        🔗 Open original page
+      </a>
+    </div>
+  </div>
+</div>
+
+    <footer>
+      <small>Tab Sense • Smarter Browsing</small>
+    </footer>
+  </div>
+
+  <script src="libs/d3.v7.min.js"></script>
+<script src="popup.js"></script>
+
+</body>
+</html>

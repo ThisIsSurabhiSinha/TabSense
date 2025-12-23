@@ -1,0 +1,338 @@
+/* ===========================
+   COLOR THEME — Beige & Olive
+   =========================== */
+:root {
+  --bg: #f1efe6;
+  --card-bg: #e9e3d5;
+  --accent: #7a8c65;
+  --accent-strong: #5a6b49;
+  --text-main: #2e2b25;
+  --text-muted: #7a756b;
+}
+
+/* ===========================
+   BASE LAYOUT
+   =========================== */
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-main);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#app {
+  padding: 12px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===========================
+   HEADER
+   =========================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 6px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+#panelControls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#toggleViewBtn,
+#closePanelBtn {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-main);
+  transition: background 150ms ease, transform 120ms ease;
+}
+
+#toggleViewBtn:hover,
+#closePanelBtn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+#closePanelBtn {
+  font-size: 16px;
+  border-radius: 50%;
+  padding: 4px 8px;
+}
+
+/* ===========================
+   SUMMARY NOTE
+   =========================== */
+#summaryNote {
+  padding: 4px 0 8px;
+  color: var(--text-muted);
+}
+
+/* ===========================
+   MAIN VIEW CONTAINERS
+   =========================== */
+main {
+  flex: 1;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+#summariesView {
+  background: var(--card-bg);
+  padding: 10px;
+  border-radius: 12px;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+#summariesView h2 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+#graphView {
+  background: var(--card-bg);
+  padding: 10px;
+  border-radius: 12px;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+#graphView h2 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===========================
+   EMPTY STATE
+   =========================== */
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  color: var(--text-muted);
+}
+
+/* ===========================
+   TAB SUMMARY CARDS
+   =========================== */
+#summaryList .item {
+  background: #fffdf6;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+#summaryList .item:last-child {
+  margin-bottom: 0;
+}
+
+#summaryList .item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  position: relative;
+  padding-right: 24px;
+  margin-bottom: 8px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.close-btn:hover {
+  color: var(--accent-strong);
+  transform: scale(1.15);
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14.5px;
+  line-height: 1.3;
+}
+
+.summary {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-main);
+}
+
+/* ===========================
+   SCROLLBAR
+   =========================== */
+#summariesView::-webkit-scrollbar {
+  width: 6px;
+}
+
+#summariesView::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#summariesView::-webkit-scrollbar-thumb {
+  background: rgba(90, 107, 73, 0.35);
+  border-radius: 6px;
+}
+
+#summariesView::-webkit-scrollbar-thumb:hover {
+  background: rgba(90, 107, 73, 0.55);
+}
+
+/* ===========================
+   GRAPH AREA
+   =========================== */
+#graph {
+  width: 100%;
+  height: calc(100% - 30px);
+  border-radius: 8px;
+  background: #fffdf6;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+footer {
+  padding-top: 8px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+footer small {
+  font-size: 11px;
+}
+
+/* ---------- Card URL preview ---------- */
+.card-url {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 6px;
+  word-break: break-all;
+}
+
+.card-url a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.card-url a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Modal styles ---------- */
+#detailModal.hidden {
+  display: none;
+}
+
+#detailModal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: relative;
+  background: #fff;
+  max-width: 600px;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  z-index: 1;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  font-size: 18px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-links {
+  margin-top: 16px;
+}
+
+.modal-links a {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.modal-links a:hover {
+  text-decoration: underline;
+}
+
+
+#graph {
+  min-height: 520px;
+  width: 100%;
+}
+
+body {
+  min-height: 600px;
+}
+
+#app {
+  min-height: 600px;
+}

@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Node
+node_modules/
+
+popup_bkp.js
